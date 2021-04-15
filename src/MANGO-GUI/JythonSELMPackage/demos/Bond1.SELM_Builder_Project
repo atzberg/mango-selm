@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!--
+=======================================================
+  Project Data File for SELM Builder                   
+                                                       
+  by Paul J. Atzberger, March, 2011                    
+=======================================================
+-->
+
+<SELM_Builder_Project>
+<SELM_Builder_Version value="1.0"/>
+
+<JTable_MainData>
+<BaseFilename value="Model"/>
+<Description value="Tests bonding interactions setup for LAMMPS."/>
+<PhysicalUnits>
+<TableData_Units_Ref>
+<atz_UnitsRef>
+<Atz_UnitsRef>
+<unitList>
+<Atz_Unit>
+<baseUnitName value="dimensionless"/>
+<numberBaseUnits value="1.0"/>
+<unitLongName value="dimensionless"/>
+<unitShortName value="length"/>
+<unitType value="1"/>
+</Atz_Unit>
+<Atz_Unit>
+<baseUnitName value="dimensionless"/>
+<numberBaseUnits value="1.0"/>
+<unitLongName value="dimensionless"/>
+<unitShortName value="time"/>
+<unitType value="2"/>
+</Atz_Unit>
+<Atz_Unit>
+<baseUnitName value="dimensionless"/>
+<numberBaseUnits value="1.0"/>
+<unitLongName value="dimensionless"/>
+<unitShortName value="mass"/>
+<unitType value="3"/>
+</Atz_Unit>
+<Atz_Unit>
+<baseUnitName value="dimensionless"/>
+<numberBaseUnits value="1.0"/>
+<unitLongName value="dimensionless"/>
+<unitShortName value="temperature"/>
+<unitType value="4"/>
+</Atz_Unit>
+</unitList>
+<unitsSelected_length value="0"/>
+<unitsSelected_time value="1"/>
+<unitsSelected_mass value="2"/>
+<unitsSelected_temperature value="3"/>
+<visiblePreferred value="false"/>
+</Atz_UnitsRef>
+</atz_UnitsRef>
+</TableData_Units_Ref>
+</PhysicalUnits>
+<SELM_Seed value="123"/>
+<SELM_Integrator_List>
+<SELM_Integrator>
+<IntegratorName value="LAMMPS_SHEAR_QUASI_STEADY1_FFTW3"/>
+<IntegratorTypeStr value="LAMMPS_SHEAR_QUASI_STEADY1_FFTW3"/>
+<deltaT value="100.0"/>
+<maxTimeStepIndex value="10000"/>
+<mu value="602214.1989999999"/>
+<rho value="602.2141989999999"/>
+<KB value="8314.472145136097"/>
+<T value="298.15"/>
+<shearData value="RM_SHEAR1">
+<shearRate value="0.0"/>
+<shearDir value="2"/>
+<shearVelDir value="0"/>
+</shearData>
+<flagStochasticDriving value="1"/>
+<flagIncompressibleFluid value="1"/>
+</SELM_Integrator>
+<SELM_Integrator>
+<IntegratorName value="NULL"/>
+<IntegratorTypeStr value="NULL"/>
+</SELM_Integrator>
+</SELM_Integrator_List>
+<SELM_Integrator_selected value="LAMMPS_SHEAR_QUASI_STEADY1_FFTW3"/>
+<SELM_Eulerian_DOF_List>
+<SELM_Eulerian>
+<EulerianName value="LAMMPS_SHEAR_UNIFORM1_FFTW3"/>
+<EulerianTypeStr value="LAMMPS_SHEAR_UNIFORM1_FFTW3"/>
+<num_dim value="3"/>
+<meshDeltaX value="5.0"/>
+<numMeshPtsPerDir>30 30 30 </numMeshPtsPerDir>
+<meshCenterX0>0.0 0.0 0.0 </meshCenterX0>
+<plotColor>
+<Color>
+<colorArray>51 51 51 </colorArray>
+</Color>
+</plotColor>
+<flagVisible value="true"/>
+<flagWriteFluidVel_VTK value="0"/>
+<flagWriteFluidForce_VTK value="0"/>
+<flagWriteFluidPressure_VTK value="0"/>
+</SELM_Eulerian>
+<SELM_Eulerian>
+<EulerianName value="NULL"/>
+<EulerianTypeStr value="NULL"/>
+</SELM_Eulerian>
+</SELM_Eulerian_DOF_List>
+<SELM_Eulerian_selected value="LAMMPS_SHEAR_UNIFORM1_FFTW3"/>
+<SELM_Lagrangian_DOF_List>
+<SELM_Lagrangian>
+<LagrangianName value="Points"/>
+<LagrangianTypeStr value="LAMMPS_ATOM_ANGLE_STYLE"/>
+<num_dim value="3"/>
+<ptsX>-20.0 0.0 0.0 20.0 0.0 0.0 </ptsX>
+<atomID>1 2 </atomID>
+<atomMass>1.123 1.123 </atomMass>
+<moleculeID>1 1 </moleculeID>
+<typeID>1 1 </typeID>
+<plotColor>
+<Color>
+<colorArray>67 183 46 </colorArray>
+</Color>
+</plotColor>
+<flagVisible value="true"/>
+<flagWriteVTK value="1"/>
+</SELM_Lagrangian>
+</SELM_Lagrangian_DOF_List>
+<SELM_Interaction_List>
+<SELM_Interaction>
+<InteractionName value="Bonds"/>
+<InteractionTypeStr value="LAMMPS_BONDS"/>
+<numPairs value="1"/>
+<pairList_lagrangianI1>
+<SELM_Lagrangian_Ref>
+<LagrangianName value="Points"/>
+<LagrangianTypeStr value="LAMMPS_ATOM_ANGLE_STYLE"/>
+</SELM_Lagrangian_Ref>
+</pairList_lagrangianI1>
+<pairList_ptI1>0 </pairList_ptI1>
+<pairList_lagrangianI2>
+<SELM_Lagrangian_Ref>
+<LagrangianName value="Points"/>
+<LagrangianTypeStr value="LAMMPS_ATOM_ANGLE_STYLE"/>
+</SELM_Lagrangian_Ref>
+</pairList_lagrangianI2>
+<pairList_ptI2>1 </pairList_ptI2>
+<bondTypeID value="1"/>
+<bondStyle value="harmonic"/>
+<bondCoeffs value="24943.4164353 10.000000"/>
+<plotColor>
+<Color>
+<colorArray>0 0 255 </colorArray>
+</Color>
+</plotColor>
+<flagVisible value="true"/>
+</SELM_Interaction>
+</SELM_Interaction_List>
+<SELM_CouplingOperator_List>
+<SELM_CouplingOperator>
+<CouplingOperatorName value="Coupling"/>
+<CouplingOperatorTypeStr value="TABLE1"/>
+<operatorData value="T_KERNEL_1">
+<weightTableFilename value="/home/atzberg/aTestFolder/DEMOS/Diffusion/Bead-Fluid_Coupling_T_KERNEL_1.SELM_CouplingOperator_weightTable"/>
+<plotColor>
+<Color>
+<colorArray>255 0 0 </colorArray>
+</Color>
+</plotColor>
+</operatorData>
+<flagVisible value="true"/>
+</SELM_CouplingOperator>
+</SELM_CouplingOperator_List>
+</JTable_MainData>
+
+<JPanel_Model_View_Composite>
+<JPanel_Model_View_RenderPanel>
+<Atz3D_Camera>
+<cameraVRP>0.0 0.0 0.0 </cameraVRP>
+<cameraVUP>-0.017340642246061515 0.9860562908704168 -0.16550617318205363 </cameraVUP>
+<cameraVPN>0.05227712352500283 -0.16441050233973456 -0.9850057304789372 </cameraVPN>
+<cameraCW>0.0 0.0 </cameraCW>
+<cameraWinBounds>257.73713080191476 257.73713080191476 0.0 0.0 </cameraWinBounds>
+</Atz3D_Camera>
+</JPanel_Model_View_RenderPanel>
+</JPanel_Model_View_Composite>
+
+<SELM_Builder_Preferences>
+
+<jTable_Preferences_Rendering>
+<SELM_Preferences_Rendering>
+<BackgroundColor1>
+<Color>
+<colorArray>153 153 255 </colorArray>
+</Color>
+</BackgroundColor1>
+<BackgroundColor2>
+<Color>
+<colorArray>255 255 255 </colorArray>
+</Color>
+</BackgroundColor2>
+<AxisVisible value="true"/>
+<AxisColor>
+<Color>
+<colorArray>183 183 183 </colorArray>
+</Color>
+</AxisColor>
+<AxisLabels1 value="x"/>
+<AxisLabels2 value="y"/>
+<AxisLabels3 value="z"/>
+<AxisLabelColor>
+<Color>
+<colorArray>70 70 226 </colorArray>
+</Color>
+</AxisLabelColor>
+</SELM_Preferences_Rendering>
+</jTable_Preferences_Rendering>
+
+<jTable_Preferences_TableDisplay>
+<SELM_Preferences_TableDisplay>
+<DisplayForDoubleValues value="0.####E0"/>
+<PhysicalUnitsVisible value="false"/>
+</SELM_Preferences_TableDisplay>
+</jTable_Preferences_TableDisplay>
+
+
+<jTable_Preferences_Other>
+<SELM_Preferences_Other>
+</SELM_Preferences_Other>
+</jTable_Preferences_Other>
+
+</SELM_Builder_Preferences>
+</SELM_Builder_Project>

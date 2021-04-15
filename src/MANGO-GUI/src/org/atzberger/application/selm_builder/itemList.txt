@@ -1,0 +1,63 @@
+- Name resolution when loading Lagrangian / Eulerian / Coupling Op lists.
+
+- Empty panels for Lagrangian data types for which no GUI is yet developed.
+(similarly for other data types).
+
+
+- Removing Lagrangian should modify interactions (remove all involving)
+
+- Selection and move points appears to act in a "Sticky manner."
+
+- Export selected Lagrangian DOF.
+
+- Move points (OK to leave for just current select, otherwise too confusing
+with different points for different types).
+
+- Ensure that the names for each type are setup uniquely 
+
+- XML messages shown when doing import data for some reason.
+
+- XML vs other file naming conventions.
+
+- XML import Lagrangian should automatically determine the type from
+  internal file specification (typeStr).
+
+- Render control background color and gradient.
+
+- Fancy plotting gradient (sphere).
+
+- Toolbar docking control.
+
+- Messages output to textbox instead of just standard out...
+
+- Dump to XML the entire set of data for the model.
+   - Save Project and Open Project.
+
+- Implement at least one Coupling Operator type.
+
+
+- New Project clear
+    - Issue warning box and then clear all data.
+
+- Reading of classes available, see URLS  (Maybe better just to have text file which registers all classes available)
+   http://snippets.dzone.com/posts/show/4831
+   http://stackoverflow.com/questions/520328/can-you-find-all-classes-in-a-package-using-reflection
+
+- Icons for New Project, Open Project, Save Project, Generate Simulation Files, About, Help.
+
+- Menu Item for check for updates, report bug, feature suggestion, etc...
+
+- Work out good convention for how edit dialogues influence the render pane.  Maybe dock
+  buttons below the display for editing. ?
+
+
+- Interactions linking via using Lagrangian names.  If name is not found, then
+  do not include the specified interaction.
+
+- Help button in context.  Also have link to Help page on-line.
+
+
+
+
+
+
