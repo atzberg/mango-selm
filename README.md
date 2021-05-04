@@ -14,7 +14,7 @@ Jupyter Notebook and Python interface for modeling also now available for SELM-L
 
 Allows for SELM and Immersed Boundary Methods hydrodynamic solvers to be used in conjunction with LAMMPS.  LAMMPS provides many interaction potentials and analysis tools for modeling and simulation.  Interaction methods include particle-mesh electrostatics, common coarse-grained potentials, many-body interactions, and others.
 
-For more information and to download see the webpages below.
+See the webpages below for more information and to download. 
 
 **New Python/Juputer Notebooks for Modeling and Simulations** Immersed Boundary/SELM Models now can easily be set up using Python or Jupyter Notebooks.  See the webpage below for details and tutorial video.
 
