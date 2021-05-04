@@ -3,9 +3,18 @@
 </p>
 
 ### Mango-Selm: Package for Fluid-Structure Interactions and Fluctuating Hydrodynamics Simulations
-Simulation codes and Jupyter Notebook and Python interface available for simulations in LAMMPS.    <br>
+Jupyter Notebook and Python interface for modeling also now available for SELM-LAMMPS simulations.    <br>
 
-**Mango-Selm** is a package for performing fluid-structure interaction simulations in LAMMPS.  The package can be used for performing implicit-solvent coarse-grained simulations in molecular dynamics and for more general problems involving fluid-structure interactions subject to thermal fluctuations.  Deterministic simulations are also possible by setting temperature to zero in models.  The package includes implementations of Stochastic Eulerian Lagrangian Methods (SELMs), Stochastic Immersed Boundary Method (SIB) approaches, and other methods.  In these hybrid methods solvent/fluid mediated effects are taken into account through continuum stochastic hydrodynamic equations that are coupled to discrete microstructure degrees of freedom.  The SELM methods provide momentum conserving thermostats for these systems and approaches for resolving relaxation of hydrodynamic modes and other dissipative interactions.  For more information and to download see the webpages below.
+**Mango-Selm** is a package for performing fluid-structure interaction simulations in LAMMPS.  The package includes methods for
+* hydrodyamic coupling between particles and microstructures handled though continuum stochastic fluid equations.
+* implicit-solvent coarse-grained simulations, for example colloids / polymers / membranes.
+* general fluid-structure interactions subject to thermal fluctuations (selms / immersed boundary models).
+* shear boundary conditions for micro-rheology studies, for example rheology of soft materials / complex fluids.
+* deterministic simulations are also possible by setting temperature parameter to zero.
+
+Allows for SELM and Immersed Boundary Methods hydrodynamic solvers to be used in conjunction with LAMMPS.  LAMMPS provides many interaction potentials and analysis tools for modeling and simulation.  Interaction methods include particle-mesh electrostatics, common coarse-grained potentials, many-body interactions, and others.
+
+For more information and to download see the webpages below.
 
 **New Python/Juputer Notebooks for Modeling and Simulations** Immersed Boundary/SELM Models now can easily be set up using Python or Jupyter Notebooks.  See the webpage below for details and tutorial video.
 
