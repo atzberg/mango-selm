@@ -1,4 +1,4 @@
-<p align="center">
+<p align="center" width="50%">
 <img src="https://github.com/atzberg/mango-selm/blob/master/examples/polymer4/doc_img/ex1.png" width="100%"> 
 </p>
 
