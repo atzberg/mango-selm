@@ -12,7 +12,7 @@ Now available with Jupyter Notebook and Python interfaces for setting up models 
 * shear boundary conditions for micro-rheology studies, for example rheology of soft materials / complex fluids.
 * deterministic simulations are also possible by setting temperature parameter to zero.
 
-Allows for SELM, Immersed Boundary Methods, and related hydrodynamic solvers to be used in conjunction with LAMMPS simulations.  LAMMPS is an optimized molecular dynamics package providing many interaction potentials and analysis tools for modeling and simulation.  Interaction methods include particle-mesh electrostatics, common coarse-grained potentials, many-body interactions, and others.
+Allows for SELM, Immersed Boundary Methods, and related hydrodynamic solvers to be used in conjunction with LAMMPS simulations.  LAMMPS is an optimized molecular dynamics package in C/C++ providing many interaction potentials and analysis tools for modeling and simulation.  Interaction methods include particle-mesh electrostatics, common coarse-grained potentials, many-body interactions, and others.
 
 **Quick Start**
 
