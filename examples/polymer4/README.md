@@ -1,5 +1,5 @@
-<p align="center" width="50%">
-<img src="https://github.com/atzberg/mango-selm/blob/master/examples/polymer4/doc_img/ex1.png" width="100%"> 
+<p align="center">
+<img src="https://github.com/atzberg/mango-selm/blob/master/examples/polymer4/doc_img/ex1.png" width="50%"> 
 </p>
 
 __Polymer with Hydrodynamic Correlations and Shear Boundary Conditions__
