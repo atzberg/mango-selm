@@ -2,26 +2,55 @@
 <img src="https://github.com/atzberg/mango-selm/blob/master/images/docs/mango_selm_software.png" width="100%"> 
 </p>
 
-### Mango-Selm: Package for Fluid-Structure Interactions and Fluctuating Hydrodynamics Simulations
-Jupyter Notebook and Python interface for modeling also now available for SELM-LAMMPS simulations.    <br>
+### Mango-Selm: Fluid-Structure Interaction and Fluctuating Hydrodynamics Simulation Package
+Now available with Jupyter Notebook and Python interfaces for setting up models for SELM-LAMMPS simulations.
 
 **Mango-Selm** is a package for performing fluid-structure interaction simulations in LAMMPS.  The package includes methods for
 * hydrodyamic coupling between particles and microstructures handled though continuum stochastic fluid equations.
 * implicit-solvent coarse-grained simulations, for example colloids / polymers / membranes.
-* general fluid-structure interactions subject to thermal fluctuations (immersed boundary methods / selms).
+* general fluid-structure interactions subject to thermal fluctuations (selms / immersed boundary models).
 * shear boundary conditions for micro-rheology studies, for example rheology of soft materials / complex fluids.
 * deterministic simulations are also possible by setting temperature parameter to zero.
 
-Allows for SELM and Immersed Boundary Methods hydrodynamic solvers to be used in conjunction with LAMMPS.  LAMMPS provides many interaction potentials and analysis tools for modeling and simulation.  Interaction methods include particle-mesh electrostatics, common coarse-grained potentials, many-body interactions, and others.
+Allows for SELM, Immersed Boundary Methods, and related hydrodynamic solvers to be used in conjunction with LAMMPS simulations.  LAMMPS is an optimized molecular dynamics package providing many interaction potentials and analysis tools for modeling and simulation.  Interaction methods include particle-mesh electrostatics, common coarse-grained potentials, many-body interactions, and others.
 
-See the webpages below for more information and to download. 
+**Quick Start**
 
-**New Python/Juputer Notebooks for Modeling and Simulations** Immersed Boundary/SELM Models now can easily be set up using Python or Jupyter Notebooks.  See the webpage below for details and tutorial video.
+Pre-compiled binaries (Debian 9+/Ubuntu and Centos 7+):
 
-**Download** the package and binaries from webpage:
+```pip install selm-lammps```
 
-http://mango-selm.org/
+To test the package installed run 
 
-Alternatively, see homepage in the software section:
+```python -c "from selm_lammps.tests import t1; t1.test()"```
 
-http://atzberger.org/  --> Software --> Mango-Selm.
+For example notebooks and model scripts, see the documentation page and video tutorial at: http://doc.mango-selm.org/
+
+**Other ways to install the package**
+For more information on other ways to install or compile the package, please see the documentation page http://doc.mango-selm.org/
+
+**Python/Juputer Notebooks for Modeling and Simulations** 
+
+Immersed Boundary Methods and SELM Models now easily can be set up using Python or Jupyter Notebooks.  See the documentation page and tutorial video for details, http://doc.mango-selm.org/
+
+**Downloads:** The source package and additional binaries are available at the webpage: http://mango-selm.org/
+
+---
+Please cite the paper below when referencing this package:
+```
+@article{atz_selm_lammps_fluct_hydro,
+title = {Fluctuating Hydrodynamics Methods for Dynamic Coarse-Grained Implicit-Solvent Simulations in LAMMPS},
+author = {Wang, Y. and Sigurdsson, J. K. and Atzberger, P. J.},
+journal = {SIAM Journal on Scientific Computing},
+volume = {38},
+number = {5},
+pages = {S62-S77},
+year = {2016},
+doi = {10.1137/15M1026390},
+URL = {https://doi.org/10.1137/15M1026390},
+}  
+```
+----
+
+__Additional Information__ <br>
+http://atzberger.org/
