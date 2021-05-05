@@ -2,7 +2,7 @@
 <img src="https://github.com/atzberg/mango-selm/blob/master/images/docs/mango_selm_software.png" width="100%"> 
 </p>
 
-### Mango-Selm: Fluid-Structure Interaction and Fluctuating Hydrodynamics Simulation Package
+### Mango-Selm: Fluid-Structure Interactions and Fluctuating Hydrodynamics Package
 Now available with Jupyter Notebook and Python interfaces for setting up models for SELM-LAMMPS simulations.
 
 **Mango-Selm** is a package for performing fluid-structure interaction simulations in LAMMPS.  The package includes methods for
