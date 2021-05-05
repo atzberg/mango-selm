@@ -24,7 +24,7 @@ To test the package installed run
 
 ```python -c "from selm_lammps.tests import t1; t1.test()"```
 
-For example notebooks and model scripts, see the ./examples folder.  Also, see the documentation page and video tutorial at: http://doc.mango-selm.org/
+For example notebooks and model scripts, see the [[https://github.com/atzberg/mango-selm/tree/master/examples | ./examples folder]].  Also, see the documentation page and video tutorial at: http://doc.mango-selm.org/
 
 **Other ways to install the package**
 For more information on other ways to install or compile the package, please see the documentation page http://doc.mango-selm.org/
