@@ -24,6 +24,8 @@ Edit the ModelXXX in the script to use each of the different example models.
 * Model1: polymer subject to uniform shear.
 * Model2: polymer subject to oscillating shear.
 
+To visualize use the script ./vis_pv_XXX.sh script, which is copied to the output directory and opens the model data in a Paraview session.
+
 See the paper below for more information on the underlying hydrodynamic model, computational methods, and shearing boundary conditions.
 
 __Incorporating Shear into Stochastic Eulerian Lagrangian Methods for Rheological Studies of Complex Fluids and Soft Materials,__ P.J. Atzberger, Physica D, Vol. 265, pg. 57–70, (2013), http://doi.org/10.1016/j.physd.2013.09.002
