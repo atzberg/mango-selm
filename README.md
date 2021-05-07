@@ -16,7 +16,7 @@ Allows for SELM, Immersed Boundary Methods, and related hydrodynamic solvers to 
 
 **Quick Start**
 
-Pre-compiled binaries (Debian 9+/Ubuntu and Centos 7+):
+Pre-compiled binaries (Debian 9+/Ubuntu and Centos 7+, python3+):
 
 ```pip install selm-lammps```
 
