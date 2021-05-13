@@ -26,7 +26,7 @@ To test the package installed run
 
 Pre-compiled binaries for (Debian 9+/Ubuntu and Centos 7+, Python 3.6+).
 
-For __example notebooks__ and model scripts, see the [./examples folder](https://github.com/atzberg/mango-selm/tree/master/examples).  
+__For example notebooks__ and model scripts, see the [./examples folder](https://github.com/atzberg/mango-selm/tree/master/examples).  
 
 **Other ways to install the package**
 For more information on other ways to install or compile the package, please see the documentation page http://doc.mango-selm.org/
