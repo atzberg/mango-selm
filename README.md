@@ -20,13 +20,13 @@ To install in Python use
 
 ```pip install selm-lammps```
 
-Pre-compiled binaries for (Debian 9+/Ubuntu and Centos 7+, Python 3.6+).
-
 To test the package installed run 
 
 ```python -c "from selm_lammps.tests import t1; t1.test()"```
 
-For example notebooks and model scripts, see the [./examples folder](https://github.com/atzberg/mango-selm/tree/master/examples).  
+Pre-compiled binaries for (Debian 9+/Ubuntu and Centos 7+, Python 3.6+).
+
+For __example notebooks__ and model scripts, see the [./examples folder](https://github.com/atzberg/mango-selm/tree/master/examples).  
 
 **Other ways to install the package**
 For more information on other ways to install or compile the package, please see the documentation page http://doc.mango-selm.org/
