@@ -1,5 +1,5 @@
 <p align="left">
-<img src="doc_img/view1_2.gif" width="20%"> 
+<img src="doc_img/view1_8_4.gif" width="20%"> 
 </p>
 
 __Polymer with Hydrodynamic Correlations and Shear Boundary Conditions__
