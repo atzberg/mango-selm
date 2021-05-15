@@ -2,7 +2,7 @@
 
 Author: Paul J. Atzberger et al., http://atzberger.org/
 
-Graphical User Interface (GUI) in Java for constructing models for simulations of fluid-structure interactions.
+Graphical User Interface (GUI) in Java for constructing models for simulations of fluid-structure interactions.  This was used with previous versions.  The current preferred way to setup models is using Python/Jupyter notebooks, see documentation page.
 
 MANGO can be used to construct models for simulations of general fluid-structure interactions subject to thermal fluctuations using Stochastic Immersed Boundary Methods (SIB) and Stochastic Eulerian Lagrangian Methods (SELM).  The thermal fluctuations also can optionally be turned off to perform Immersed Boundary simulations for determinstic fluid flows.
 
