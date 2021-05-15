@@ -16,7 +16,7 @@ Allows for SELM, Immersed Boundary Methods, and related hydrodynamic solvers to 
 
 **Quick Start**
 
-To install in Python use
+To install pre-compiled package for Python use
 
 ```pip install selm-lammps```
 
