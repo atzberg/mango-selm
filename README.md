@@ -32,7 +32,7 @@ To update to latest version use
 __For example notebooks__ and model scripts, see the [examples folder](https://github.com/atzberg/mango-selm/tree/master/examples).  
 
 **Other ways to install the package**
-For running prototype models and simulations on desktop in Windows and MacOS we recommed using Docker container.  For example, install [Docker Desktop](https://docs.docker.com/desktop/) and then run in terminal ```docker run -it ubuntu:20.04 /bin/bash```  You can then use ```apt update; apt install python3-pip``` and install and run the simulation package using ```python3``` as above.  
+For running prototype models and simulations on desktop in Windows and MacOS we recommed using Docker container.  For example, install [Docker Desktop](https://docs.docker.com/desktop/) and then run in terminal ```docker run -it ubuntu:20.04 /bin/bash```  You can then use ```apt update; apt install python3-pip``` and install and run the simulation package as above using ```python3``` in place of ```python``` in commands.  
 
 For more information on other ways to install or compile the package, please see the documentation page http://doc.mango-selm.org/
 
