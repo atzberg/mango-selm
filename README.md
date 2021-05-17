@@ -3,7 +3,7 @@
 </p>
 
 ### Mango-Selm: Fluid-Structure Interactions and Fluctuating Hydrodynamics Simulation Package
-Now available with Jupyter Notebook and Python interfaces for setting up models and simulations.
+Now available with easy to use Jupyter Notebook and Python interfaces for setting up models and simulations.
 
 **Mango-Selm** is a Python/C++ package for performing fluid-structure interaction simulations in LAMMPS.  The package includes methods for
 * hydrodyamic coupling between particles and microstructures handled though continuum stochastic fluid equations.
@@ -29,7 +29,7 @@ Pre-compiled binaries for (Debian 9+/Ubuntu and Centos 7+, Python 3.6+).
 To update to latest version use 
 ```pip install --upgrade selm-lammps```
 
-__For example notebooks__ and model scripts, see the [examples folder](https://github.com/atzberg/mango-selm/tree/master/examples).  
+__For example models, notebooks,__ and scripts, see the [examples folder](https://github.com/atzberg/mango-selm/tree/master/examples).  
 
 **Other ways to install the package**
 For running prototype models and simulations on desktop in Windows and MacOS we recommed using Docker container.  For example, install [Docker Desktop](https://docs.docker.com/desktop/) and then run in terminal ```docker run -it ubuntu:20.04 /bin/bash```  You can then use ```apt update; apt install python3-pip``` and install and run the simulation package as above.  Note use command ```python3``` in place of ```python``` when calling scripts.  
