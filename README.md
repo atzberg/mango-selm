@@ -59,13 +59,13 @@ URL = {https://doi.org/10.1137/15M1026390},
 ```
 ----
 
-__Bugs or Issues Encountered__
+__Bugs or Issues__
 
-Please let us know if you encounter any bugs or issues when using the package by providing information [here](https://forms.gle/432eGjn2UYFVodqo8).
+If you encounter any bugs or issues please let us know by providing information [here](https://forms.gle/432eGjn2UYFVodqo8).
 
 __Please submit usage and citation information__
 
-Please let us know if you use this package in your simulation work by submitting information [here](https://forms.gle/CukiUvkqpszLuCgU6).  This helps us with reporting and further development of the package.
+If you use this package in your simulation work, please let us know by submitting information [here](https://forms.gle/CukiUvkqpszLuCgU6).  This helps us with reporting and with further development of the package.  Thanks.
 
 __Additional Information__ <br>
 http://atzberger.org/
