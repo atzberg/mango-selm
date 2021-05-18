@@ -63,5 +63,9 @@ __Bugs or Issues Encountered__
 
 Please let us know if you encounter any bugs or issues when using the package by providing information [here](https://forms.gle/432eGjn2UYFVodqo8).
 
+__Please submit usage and citation information__
+
+Please let us know if you use this package in your simulation work by submitting information [here](https://forms.gle/CukiUvkqpszLuCgU6).  This helps us with reporting and further development of the package.
+
 __Additional Information__ <br>
 http://atzberger.org/
