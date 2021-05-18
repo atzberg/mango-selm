@@ -1,5 +1,5 @@
 <p align="left">
-<img src="doc_img/view1_8_4.gif" width="20%"> 
+<img src="doc_img/hydro1_view1_1.gif" width="20%"> 
 </p>
 
 <!-- ![Image](doc_img/ex1.png) -->
