@@ -59,5 +59,9 @@ URL = {https://doi.org/10.1137/15M1026390},
 ```
 ----
 
+__Bugs or Issues Encountered__
+
+Please let us know if you encounter any bugs or issues when using the package by providing information [here](https://forms.gle/432eGjn2UYFVodqo8).
+
 __Additional Information__ <br>
 http://atzberger.org/
