@@ -3,9 +3,9 @@
 </p>
 
 ### Mango-Selm: Fluid-Structure Interactions and Fluctuating Hydrodynamics Simulation Package
-Now available with Jupyter Notebook and Python interfaces for setting up models for SELM-LAMMPS simulations.
+Now available with easy to use Jupyter notebooks and Python scripts for setting up models and simulations.
 
-**Mango-Selm** is a package for performing fluid-structure interaction simulations in LAMMPS.  The package includes methods for
+**Mango-Selm** is a Python/C++ package for performing fluid-structure interaction simulations in LAMMPS.  The package includes methods for
 * hydrodyamic coupling between particles and microstructures handled though continuum stochastic fluid equations.
 * implicit-solvent coarse-grained simulations, for example colloids / polymers / membranes.
 * general fluid-structure interactions subject to thermal fluctuations (selms / immersed boundary models).
@@ -16,7 +16,7 @@ Allows for SELM, Immersed Boundary Methods, and related hydrodynamic solvers to 
 
 **Quick Start**
 
-To install in Python use
+To install pre-compiled package for Python use
 
 ```pip install selm-lammps```
 
@@ -29,9 +29,11 @@ Pre-compiled binaries for (Debian 9+/Ubuntu and Centos 7+, Python 3.6+).
 To update to latest version use 
 ```pip install --upgrade selm-lammps```
 
-__For example notebooks__ and model scripts, see the [./examples folder](https://github.com/atzberg/mango-selm/tree/master/examples).  
+__For example models, notebooks,__ and scripts, see the [examples folder](https://github.com/atzberg/mango-selm/tree/master/examples).  
 
 **Other ways to install the package**
+For running prototype models and simulations on a desktop, such as Windows and MacOS, we recommend using Docker container.  For example, install [Docker Desktop](https://docs.docker.com/desktop/), or docker for linux, and then load a standard ubuntu container by using in the terminal ```docker run -it ubuntu:20.04 /bin/bash```  You can then use ```apt update; apt install python3-pip```, and can then pip install and run the simulation package as above.  Note use command ```python3``` in place of ```python``` when calling scripts.  
+
 For more information on other ways to install or compile the package, please see the documentation page http://doc.mango-selm.org/
 
 **Python/Juputer Notebooks for Modeling and Simulations** 
