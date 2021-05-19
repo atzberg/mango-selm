@@ -69,7 +69,8 @@ If you encounter any bugs or issues please let us know by providing information 
 
 __Please submit usage and citation information__
 
-If you use this package or related methods, please let us know by submitting information [here](https://forms.gle/CukiUvkqpszLuCgU6).  This helps us with reporting and with further development of the package.  Thanks.
+If you use this package or related methods, please let us know by submitting information [here](https://forms.gle/CukiUvkqpszLuCgU6).  
+This helps us with reporting and with further development of the package.  Thanks.
 
 __Acknowledgements__
 We gratefully acknowledge support from NSF Career Grant DMS-0956210, NSF Grant DMS-1616353, DOE ASCR CM4 DE-SC0009254, and DOE Grant ASCR PHILMS DE-SC0019246.
