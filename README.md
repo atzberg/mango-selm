@@ -59,6 +59,10 @@ URL = {https://doi.org/10.1137/15M1026390},
 ```
 ----
 
+__Mailing List for Updates and Releases__
+
+Please join the mailing list for updates and releases [here](https://forms.gle/y8EMa8XHeF48btDp7).
+
 __Bugs or Issues__
 
 If you encounter any bugs or issues please let us know by providing information [here](https://forms.gle/432eGjn2UYFVodqo8).
@@ -66,10 +70,6 @@ If you encounter any bugs or issues please let us know by providing information 
 __Please submit usage and citation information__
 
 If you use this package or related methods, please let us know by submitting information [here](https://forms.gle/CukiUvkqpszLuCgU6).  This helps us with reporting and with further development of the package.  Thanks.
-
-__Mailing List for Updates and Releases__
-
-Please join the mailing list for updates and releases [here](https://forms.gle/y8EMa8XHeF48btDp7).
 
 __Acknowledgements__
 We gratefully acknowledge support from NSF Career Grant DMS-0956210, NSF Grant DMS-1616353, DOE ASCR CM4 DE-SC0009254, and DOE Grant ASCR PHILMS DE-SC0019246.
