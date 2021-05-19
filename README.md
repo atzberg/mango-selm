@@ -65,7 +65,15 @@ If you encounter any bugs or issues please let us know by providing information 
 
 __Please submit usage and citation information__
 
-If you use this package in your simulation work, please let us know by submitting information [here](https://forms.gle/CukiUvkqpszLuCgU6).  This helps us with reporting and with further development of the package.  Thanks.
+If you use this package or related methods, please let us know by submitting information [here](https://forms.gle/CukiUvkqpszLuCgU6).  This helps us with reporting and with further development of the package.  Thanks.
+
+__Mailing List for Updates and Releases__
+
+Please join the mailing list for updates and releases [here](https://forms.gle/y8EMa8XHeF48btDp7).
+
+
+
+https://forms.gle/y8EMa8XHeF48btDp7
 
 __Additional Information__ <br>
 http://atzberger.org/
