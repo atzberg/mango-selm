@@ -61,7 +61,7 @@ URL = {https://doi.org/10.1137/15M1026390},
 
 __Mailing List for Updates and Releases__
 
-Please join the mailing list for updates and releases [here](https://forms.gle/y8EMa8XHeF48btDp7).
+Please join the mailing list for future updates and releases [here](https://forms.gle/y8EMa8XHeF48btDp7).
 
 __Bugs or Issues__
 
