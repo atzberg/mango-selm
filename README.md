@@ -71,9 +71,10 @@ __Mailing List for Updates and Releases__
 
 Please join the mailing list for updates and releases [here](https://forms.gle/y8EMa8XHeF48btDp7).
 
+__Acknowledgements__
+We gratefully acknowledge support from NSF CAREER Grant DMS - 0956210, NSF Grant DMS
+- 1616353, DOE ASCR CM4 DE-SC0009254, and DOE Grant ASCR PHILMS DE-SC0019246.
 
-
-https://forms.gle/y8EMa8XHeF48btDp7
 
 __Additional Information__ <br>
 http://atzberger.org/
