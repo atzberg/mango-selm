@@ -59,7 +59,7 @@ URL = {https://doi.org/10.1137/15M1026390},
 ```
 ----
 
-__Mailing List for Updates and Releases__
+__Mailing List for Future Updates and Releases__
 
 Please join the mailing list for future updates and releases [here](https://forms.gle/R1sQCPkUcbtVRb5Q7).
 
