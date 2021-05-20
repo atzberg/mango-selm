@@ -510,7 +510,7 @@ if flag_run_cell:
 
   plt.draw();
   base_filename = '%s/configuration_view1'%(base_dir_fig);
-  save_fig(base_filename,flag_pdf=True);
+  atz_util.save_fig(base_filename,flag_pdf=True);
 
 
 # In[ ]:
