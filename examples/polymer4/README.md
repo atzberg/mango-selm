@@ -44,4 +44,4 @@ __Incorporating Shear into Stochastic Eulerian Lagrangian Methods for Rheologica
 ```
 ----
 
-For additional examples and information see http://mango-selm.org/
+For additional examples see the [examples folder](https://github.com/atzberg/mango-selm/tree/master/examples) or information on http://mango-selm.org/
