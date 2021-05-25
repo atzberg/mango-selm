@@ -1,6 +1,7 @@
 # MANGO-GUI
 
-Author: Paul J. Atzberger et al., http://atzberger.org/
+Paul J. Atzberger et al. <br> 
+http://atzberger.org/ <br>
 
 Graphical User Interface (GUI) in Java for constructing models for simulations of fluid-structure interactions.  This was used with previous versions.  The current preferred way to setup models is using Python/Jupyter notebooks, see documentation page.
 
