@@ -46,7 +46,8 @@ Immersed Boundary Methods and SELM Models now easily can be set up using Python 
 Please cite the paper below when referencing this package:
 ```
 @article{atz_selm_lammps_fluct_hydro,
-title = {Fluctuating Hydrodynamics Methods for Dynamic Coarse-Grained Implicit-Solvent Simulations in LAMMPS},
+title = {Fluctuating Hydrodynamics Methods for Dynamic Coarse-Grained 
+Implicit-Solvent Simulations in LAMMPS},
 author = {Wang, Y. and Sigurdsson, J. K. and Atzberger, P. J.},
 journal = {SIAM Journal on Scientific Computing},
 volume = {38},
