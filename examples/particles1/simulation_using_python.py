@@ -269,7 +269,7 @@ neigh_modify every 1
 atom_modify sort 0 ${neighborSkinDist}           # setup sort data explicitly since no interactions to set this data. 
 
 # == Setup the SELM integrator
-fix 1 all SELM Main.SELM_params
+fix 1 all selm Main.SELM_params
 
 # note langevin just computes forces, nve integrates the motions
 #fix 1 all langevin 298.15 298.15 0.00001 48279
