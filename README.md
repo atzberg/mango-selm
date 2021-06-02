@@ -26,7 +26,7 @@ To test the package installed run
 
 Pre-compiled binaries for (Debian 9+/Ubuntu and Centos 7+, Python 3.6+).
 
-__If previously installed__ this package please be sure to update to the latest version using 
+__If you installed previously__ this package, please be sure to update to the latest version using 
 ```pip install --upgrade selm-lammps```
 
 __For example models, notebooks,__ and scripts, see the [examples folder](https://github.com/atzberg/mango-selm/tree/master/examples).  
