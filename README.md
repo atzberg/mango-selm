@@ -36,7 +36,7 @@ For running prototype models and simulations on a desktop, such as Windows and M
 
 For more information on other ways to install or compile the package, please see the documentation page http://doc.mango-selm.org/
 
-**Python/Juputer Notebooks for Modeling and Simulations** 
+**Python/Jupyter Notebooks for Modeling and Simulations** 
 
 Immersed Boundary Methods and SELM Models now easily can be set up using Python or Jupyter Notebooks.  See the documentation page and tutorial video for details, http://doc.mango-selm.org/
 
