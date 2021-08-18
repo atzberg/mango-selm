@@ -40,6 +40,8 @@ For more information on other ways to install or compile the package, please see
 
 Immersed Boundary Methods and SELM Models now easily can be set up using Python or Jupyter Notebooks.  See the documentation page and tutorial video for details, http://doc.mango-selm.org/
 
+**Tutorials:** [Tutorial 1](https://www.lammps.org/workshops/Aug21/breakout/user-selm/index.html) [Tutorial 2](https://www.youtube.com/watch?v=EXg8WjfgXmk) [more info](http://doc.mango-selm.org/)
+
 **Downloads:** The source package and additional binaries are available at the webpage: http://mango-selm.org/
 
 ---
