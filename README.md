@@ -18,7 +18,7 @@ Allows for SELM, Immersed Boundary Methods, and related hydrodynamic solvers to 
 
 To install pre-compiled package for Python use
 
-```pip install selm-lammps```
+```pip install -U selm-lammps```
 
 To test the package installed run 
 
