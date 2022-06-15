@@ -32,7 +32,7 @@ __If you installed previously__ this package, please be sure to update to the la
 __For example models, notebooks,__ and scripts, see the [examples folder](https://github.com/atzberg/mango-selm/tree/master/examples).  
 
 **Other ways to install the package**
-For running prototype models and simulations on a desktop, such as Windows and MacOS, we recommend using Docker container.  For example, install [Docker Desktop](https://docs.docker.com/desktop/), or docker for linux, and then load a standard ubuntu container by using in the terminal ```docker run -it ubuntu:20.04 /bin/bash```  You can then use ```apt update; apt install python3-pip```, and can then pip install and run the simulation package as above.  Note use command ```python3``` in place of ```python``` when calling scripts.  
+The codes can also be run on Windows using WSL Ubuntu 22.04.  Another way to run prototype models and simulations on a desktop, such as Windows and MacOS, is using Docker container.  For example, install [Docker Desktop](https://docs.docker.com/desktop/), or docker for linux, and then load a standard ubuntu container by using in the terminal ```docker run -it ubuntu:20.04 /bin/bash```  You can then use ```apt update; apt install python3-pip```, and can then pip install and run the simulation package as above.  Note use command ```python3``` in place of ```python``` when calling scripts.  
 
 For more information on other ways to install or compile the package, please see the documentation page http://doc.mango-selm.org/
 
