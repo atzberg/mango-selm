@@ -60,6 +60,20 @@ doi = {10.1137/15M1026390},
 URL = {https://doi.org/10.1137/15M1026390},
 }  
 ```
+```
+@article{atz_selm_shear_methods,
+title = {Incorporating shear into stochastic Eulerian{\textendash}Lagrangian 
+methods for rheological studies of complex fluids and soft materials},
+author = {Paul J. Atzberger},
+journal = {Physica D: Nonlinear Phenomena},
+publisher = {Elsevier {BV}},
+volume = {265},
+pages = {57--70},
+year = {2013},
+doi = {10.1016/j.physd.2013.09.002},
+url = {https://doi.org/10.1016%2Fj.physd.2013.09.002},
+}
+```
 ----
 
 __Mailing List for Future Updates and Releases__
