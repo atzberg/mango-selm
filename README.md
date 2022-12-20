@@ -58,8 +58,8 @@ pages = {S62-S77},
 year = {2016},
 doi = {10.1137/15M1026390},
 URL = {https://doi.org/10.1137/15M1026390},
-}  
-
+}```  
+```
 @article{atz_selm_shear_methods,
 title = {Incorporating shear into stochastic Eulerian{\textendash}Lagrangian 
 methods for rheological studies of complex fluids and soft materials},
