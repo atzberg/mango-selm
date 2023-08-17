@@ -46,6 +46,9 @@ Immersed Boundary Methods and SELM Models now easily can be set up using Python 
 
 ---
 Please cite the paper below when referencing this package:
+
+**Fluctuating Hydrodynamics Methods for Dynamic Coarse-Grained Implicit-Solvent Simulations in LAMMPS**, Wang, Y. and Sigurdsson, J. K. and Atzberger, P. J., SIAM Journal on Scientific Computing, 2016, [paper link](https://doi.org/10.1137/15M1026390).
+
 ```
 @article{atz_selm_lammps_fluct_hydro,
 title = {Fluctuating Hydrodynamics Methods for Dynamic Coarse-Grained 
@@ -59,7 +62,11 @@ year = {2016},
 doi = {10.1137/15M1026390},
 URL = {https://doi.org/10.1137/15M1026390},
 }
-```  
+```
+
+**Incorporating shear into stochastic Eulerian{\textendash}Lagrangian methods for rheological studies of complex fluids and soft materials**, P.J. Atzberger, Physica D: Nonlinear Phenomena, 2013, [paper link](https://doi.org/10.1016%2Fj.physd.2013.09.002).
+
+
 ```
 @article{atz_selm_shear_methods,
 title = {Incorporating shear into stochastic Eulerian{\textendash}Lagrangian 
