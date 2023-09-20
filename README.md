@@ -2,6 +2,8 @@
 <img src="https://github.com/atzberg/mango-selm/blob/master/images/docs/mango_selm_software.png" width="100%"> 
 </p>
 
+[Tutorial 1](https://www.lammps.org/workshops/Aug21/breakout/user-selm/index.html) | [Tutorial 2](https://www.youtube.com/watch?v=EXg8WjfgXmk) | [Examples](./examples) | [Documentation Pages](http://doc.mango-selm.org/)
+
 ### Mango-Selm: Fluid-Structure Interactions and Fluctuating Hydrodynamics Simulation Package
 Now available with Jupyter notebooks and Python scripts for readily setting up models and simulations.
 
@@ -40,7 +42,7 @@ For more information on other ways to install or compile the package, please see
 
 Immersed Boundary Methods and SELM Models now easily can be set up using Python or Jupyter Notebooks.  See the documentation page and tutorial video for details, http://doc.mango-selm.org/
 
-**Tutorials:** [Tutorial 1](https://www.lammps.org/workshops/Aug21/breakout/user-selm/index.html) | [Tutorial 2](https://www.youtube.com/watch?v=EXg8WjfgXmk) | [docs](http://doc.mango-selm.org/)
+**Tutorials:** [Tutorial 1](https://www.lammps.org/workshops/Aug21/breakout/user-selm/index.html) | [Tutorial 2](https://www.youtube.com/watch?v=EXg8WjfgXmk) | [Documentation Pages](http://doc.mango-selm.org/)
 
 **Downloads:** The source package and additional binaries are available at the webpage: http://mango-selm.org/
 
