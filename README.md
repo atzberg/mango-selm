@@ -7,7 +7,7 @@
 ### Mango-Selm: Fluid-Structure Interactions and Fluctuating Hydrodynamics Simulation Package
 Now available with Jupyter notebooks and Python scripts for readily setting up models and simulations.
 
-**Mango-Selm** is a Python/C++ package for performing fluid-structure interaction simulations in LAMMPS.  The package includes methods for
+**Mango-Selm** is a Python/C++ package for performing fluid-structure interaction simulations interfacing with the LAMMPS MD package.  Provides simulation methods for particle systems, materials, and complex fluids with fluctuating hydrodynamics approaches including stochastic immersed boundary methods and stochastic eulerian-lagrangian methods.  The package includes approaches for 
 * hydrodyamic coupling between particles and microstructures handled through continuum stochastic fluid equations.
 * implicit-solvent coarse-grained simulations, for example colloids / polymers / membranes.
 * general fluid-structure interactions subject to thermal fluctuations (selms / immersed boundary models).
