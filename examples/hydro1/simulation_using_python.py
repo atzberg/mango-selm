@@ -79,7 +79,7 @@ os.chdir(base_dir); # base the current working directory
 
 
 lmp =  lammps();
-atz_util.print_version_info(L);    
+atz_util.print_version_info(lmp);    
 
 
 # ### Copy files to the output directory
