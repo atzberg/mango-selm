@@ -1,4 +1,3 @@
-
 # coding: utf-8
 
 # ### SELM via PyLAMMPs for Simulations
@@ -6,24 +5,22 @@
 # http://atzberger.org/
 # 
 
-# In[1]:
+# #### Load PyLammps compiled with USER-SELM  package 
+# Be sure to have compiled LAMMPs with `make yes-user-selm` for shared library and `make install-python`.
 
-
+# In[4]:
 import os;
 script_base_name = "simulation_using_python";
 script_dir = os.getcwd();
 
-# In[2]:
-
+# In[5]:
 # import the lammps module
 try:  
-  from selm_lammps.lammps import IPyLammps # use this for the pip install of pre-built package
-  lammps_import_comment = "from selm_lammps.lammps import IPyLammps";  
-  from selm_lammps import util as atz_util;
+  from selm_lammps.lammps import lammps # use this for the pip install of pre-built package
+  lammps_import_comment = "from selm_lammps import lammps";  
 except Exception as e:  
-  from lammps import IPyLammps # use this for direct install of package
-  lammps_import_comment = "from lammps import IPyLammps";
-  from atz_lammps import util as atz_util;
+  from lammps import lammps # use this for direct install of package
+  lammps_import_comment = "from lammps import lammps";    
 except Exception as e: # if fails to import, report the exception   
   print(e);
   lammps_import_comment = "import failed";
@@ -31,9 +28,13 @@ except Exception as e: # if fails to import, report the exception
 import numpy as np;
 import matplotlib;
 import matplotlib.pyplot as plt;
+import shutil;
 
-import sys,shutil,pickle,pdb;
+import pickle;
 
+import pdb;
+
+import sys;
 import logging;
 
 fontsize = 14;
@@ -44,35 +45,165 @@ font = {'family' : 'DejaVu Sans',
 matplotlib.rc('font', **font);
 
 
+# ### Function and Class Definitions
+
+# In[6]:
+
+
+def print_version_info(lmp):
+  #lmp.command("info all out overwrite tmp.txt"); # dump all current info to file.
+  lmp.command("info all out overwrite tmp.txt"); # dump all current info to file.
+  f = open("tmp.txt"); ss = f.read(); f.close(); # load a display for the user
+  results = [];
+  for line in ss.splitlines():
+    if "version" in line:
+      print_log(line);    
+
+
+# In[7]:
+
+
+def create_dir(dir_name):
+  if not os.path.exists(dir_name):
+    os.makedirs(dir_name);    
+    
+def rm_dir(dir_name):
+  if os.path.exists(dir_name):    
+    shutil.rmtree(dir_name);
+  else: 
+    print_log("WARNING: rm_dir(): The directory does not exist, dir_name = " + dir_name);    
+
+
+# In[8]:
+
+
+def copytree2(src, dst, symlinks=False, ignore=None):
+  for ff in os.listdir(src):
+    s = os.path.join(src, ff); d = os.path.join(dst, ff);
+    if os.path.isdir(s):
+      shutil.copytree(s, d, symlinks, ignore);
+    else:
+      shutil.copy2(s, d);
+
+
+# In[9]:
+
+
+def save_fig(base_filename,extraLabel='',flag_verbose=True,dpi_set=200,flag_pdf=False,bbox_inches=None):
+    
+  flag_simple = False;
+  if flag_simple: # avoids flashing, just uses screen resolution (ignores dpi_set)
+    if flag_pdf:    
+      save_filename = '%s%s.pdf'%(base_filename,extraLabel);
+      if flag_verbose:
+        print_log('save_filename = %s'%save_filename);
+      #plt.savefig(save_filename, format='pdf',dpi=dpi_set,facecolor=(1,1,1,1),alpha=1.0);
+      plt.savefig(save_filename, format='pdf',bbox_inches=bbox_inches);
+
+    save_filename = '%s%s.png'%(base_filename,extraLabel);
+    if flag_verbose:
+      print_log('save_filename = %s'%save_filename);
+    #plt.savefig(save_filename, format='png',dpi=dpi_set,facecolor=(1,1,1,1),alpha=1.0);
+    plt.savefig(save_filename, format='png',bbox_inches=bbox_inches);
+  else:  # NOTE: Can also get same below likely by setting facecolor='white'.
+    fig = plt.gcf();  
+    fig.patch.set_alpha(1.0);
+    fig.patch.set_facecolor((1.0,1.0,1.0,1.0));
+    
+    if flag_pdf:
+      save_filename = '%s%s.pdf'%(base_filename,extraLabel);
+      if flag_verbose:
+        print_log('save_filename = %s'%save_filename);
+      plt.savefig(save_filename, format='pdf',dpi=dpi_set,facecolor=(1,1,1,1),bbox_inches=bbox_inches);
+      #plt.savefig(save_filename, format='pdf',dpi=dpi_set);
+
+    save_filename = '%s%s.png'%(base_filename,extraLabel);
+    if flag_verbose:
+      print_log('save_filename = %s'%save_filename);
+    plt.savefig(save_filename, format='png',dpi=dpi_set,facecolor=(1,1,1,1),bbox_inches=bbox_inches);
+    #plt.savefig(save_filename, format='png',dpi=dpi_set);
+
+
+# In[10]:
+
+
+# Setup for mapping print --> to logging (only works for print in the notebook)
+flag_log_init = False;
+logger = None; log_print_handle = None; # default
+
+def print_log(str):    
+  if flag_log_init: 
+    logger.info(str);
+    #log_print_handle(str);    
+  else:
+    print(str);
+
+def print_log_debug(str):
+  if flag_log_init:  
+    logger.debug(str);
+    #log_print_handle(str);
+  else:
+    print(str);
+
+def setup_log(print_handle,base_dir,level=logging.DEBUG):
+  global flag_log_init, logger, log_print_handle;
+
+  log_print_handle = print_handle;
+  # logging.basicConfig(filename='%s/main.log'%base_dir,level=logging.DEBUG);
+  filename = '%s/main.log'%base_dir;
+  print("Setting up log file in filename = " + filename);
+  #logging.basicConfig(filename=filename,level=level,format='%(levelname)s:%(message)s');
+  #logging.basicConfig(filename=filename,level=level,filemode='w',format='%(message)s'); # filemode overwrite
+  #logging.basicConfig(filename=filename,level=level,format='%(message)s'); # filemode overwrite
+  logging.basicConfig(
+    level=logging.INFO,
+    format='%(message)s',
+    handlers=[logging.FileHandler(filename=filename),
+              logging.StreamHandler(sys.stdout)]);
+  logger = logging.getLogger('LOGGER_NAME');
+  
+  flag_log_init = True;
+  
+
+
+# In[11]:
+
+
+def atz_find_name(l,s):
+  I = 0;  I0 = None;
+  for ll in l:
+    if s == ll:
+      I0 = I;
+    I+=1;
+    
+  return I0;
+
+
 # ### Setup SELM Simulation
 
-# In[3]:
+# In[12]:
 
 
 # @base_dir
 base_dir_output   = '%s/output/%s'%(script_dir,script_base_name);
-atz_util.create_dir(base_dir_output);
+create_dir(base_dir_output);
 
 dir_run_name = 'harmonic';
 base_dir = '%s/%s_test000'%(base_dir_output,dir_run_name);
 
 # remove all data from dir
-atz_util.rm_dir(base_dir);
+rm_dir(base_dir);
 
 # setup the directories
 base_dir_fig    = '%s/fig'%base_dir;
-atz_util.create_dir(base_dir_fig);
+create_dir(base_dir_fig);
 
 base_dir_vtk    = '%s/vtk'%base_dir;
-atz_util.create_dir(base_dir_vtk);
+create_dir(base_dir_vtk);
 
 # setup logging
-# @@@! Setup AtzLogging class and references...
-atzLog = atz_util.AtzLogging(print,base_dir);
-#atz_util.setup_log(print,base_dir);
+setup_log(print,base_dir);
 print("");
-
-print_log = atzLog.print_log;
 
 # print the import comment
 print_log(lammps_import_comment);
@@ -85,27 +216,29 @@ os.chdir(base_dir); # base the current working directory
 
 # ### Setup LAMMPs
 
-# In[4]:
+# In[13]:
 
 
-L = IPyLammps();
-atz_util.print_version_info(L);    
+lmp = lammps()
+print_version_info(lmp);    
 
 
 # ### Copy files to the output directory
 
-# In[5]:
+# In[14]:
 
 
 # copy the model files to the destination
-src = script_dir + '/' + "Model1";
+#src = script_dir + '/' + "Model1";
+src = script_dir + '/' + "Model2";
 dst = base_dir + '/';
-atz_util.copytree2(src,dst,symlinks=False,ignore=None);
+dst = base_dir + '/';
+copytree2(src,dst,symlinks=False,ignore=None);
 
 print_log("Model files being copied:\n" + "src = " + str(src) + "\n" + "dst = " + str(dst));
 
 
-# In[6]:
+# In[15]:
 
 
 flag_copy_notebook_to_output = True;
@@ -118,22 +251,22 @@ if flag_copy_notebook_to_output:
   print_log("Copying notebook to archive:\n" + "src = " + str(src) + "\n" + "dst = " + str(dst));
 
 
-# ### Common Physical Parameters (nano units)
-
-# In[7]:
-
-
-# Reference units and parameters
-units = {'name':'nano','mu':1.0,'rho':0.001,
-         'KB':0.01380651,'T':298.15};
-units.update({'KBT':units['KB']*units['T']});
-
-
 # ### Setup the Simulation Files (such as .read_data)
 
-# In[8]:
+# In[16]:
 
 
+### Common Physical Parameters (nano units)
+units = {};
+units['mu'] = 1.0;
+units['rho'] = 0.001;
+units['KB'] = 0.01380651;
+units['T'] = 298.15;
+units['KBT'] = units['KB']*units['T'];
+#KBT = 4.1164097102113; 
+
+
+##
 num_dim = 3;
 box = np.zeros((num_dim,2));
 LL = 202.5; box[:,0] = -LL; box[:,1] = LL;
@@ -147,7 +280,6 @@ atom_mol_list = []; atom_name_list = [];
 atom_name = "polymer_pts";
 atom_name_list.append(atom_name);
 atom_types.append(I_type); 
-
 num_pts = 100; 
 t = np.linspace(0,2*np.pi,num_pts,endpoint=False); R0 = 40;
 x1 = R0*(2.0 + np.cos(2.0*t))*np.cos(3.0*t); 
@@ -197,17 +329,16 @@ bond_list = []; bond_coeff_list = []; bond_id_list = [];
 flag_bond_1 = True;
 if flag_bond_1:
   bond_types.append(I_type);
-  #bond_name_list.append("fene_1");
   bond_name_list.append("harmonic_1");
-  
-  KBT = units['KBT']; ell = 5.0; K = 0.5*KBT/(ell*ell); r0 = 20;
+
+  KBT = units['KBT']; ell = 3.0; K = 0.5*KBT/(ell*ell); r0 = 20;
   b = "harmonic %.7f %7f"%(K,r0);
   print_log("bond:");
   print_log("KBT = " + str(KBT)); print_log("r0 = " + str(r0));  
   print_log("bond coeff = " + str(b));
   bond_coeff_list.append(b);
 
-  I0 = atz_util.atz_find_name(atom_name_list,"polymer_pts"); I_atom_type = atom_types[I0];
+  I0 = atz_find_name(atom_name_list,"polymer_pts"); I_atom_type = atom_types[I0];
   atom_id = atom_id_list[I_atom_type - 1]; nn = atom_id.shape[0];
   bonds = np.zeros((nn,2),dtype=int); 
   bond_id = np.zeros(bonds.shape[0],dtype=int);
@@ -231,14 +362,13 @@ flag_angles_1 = True;
 if flag_angles_1:
   angle_name_list.append("atom_type_1");
   angle_types.append(I_type);
-  #KBT = 2478959.87; K = 10*KBT; theta_0 = 180.0; # degrees
-  KBT = units['KBT']; K = 5*KBT; theta_0 = 180.0; # degrees
+  KBT = units['KBT']; K = 4*KBT; theta_0 = 180.0; # degrees
   b = "harmonic %.7f %.7f"%(K,theta_0);
   angle_coeff_list.append(b);
 
 # build angle bonds for type 1 atoms with type 1 atoms, closed loop
 if flag_angles_1:
-  I0 = atz_util.atz_find_name(atom_name_list,"polymer_pts"); I_atom_type = atom_types[I0];
+  I0 = atz_find_name(atom_name_list,"polymer_pts"); I_atom_type = atom_types[I0];
   atom_id = atom_id_list[I_atom_type - 1]; nn = atom_id.shape[0];
   angles = np.zeros((nn,3),dtype=int);
   angle_id = np.zeros(angles.shape[0],dtype=int);
@@ -253,43 +383,211 @@ if flag_angles_1:
 num_angles = I_id - 1;
 angle_types = np.array(angle_types,dtype=int);
 
-# store the model information
-model_info = {};
-model_info.update({'num_dim':num_dim,'box':box,'atom_types':atom_types,
-          'atom_list':atom_list,'atom_mass_list':atom_mass_list,'atom_name_list':atom_name_list,
-          'atom_id_list':atom_id_list,'atom_mol_list':atom_mol_list,
-          'bond_types':bond_types,'bond_list':bond_list,'bond_id_list':bond_id_list,
-          'bond_coeff_list':bond_coeff_list,'bond_name_list':bond_name_list,
-          'angle_types':angle_types,'angle_list':angle_list,'angle_id_list':angle_id_list,
-          'angle_coeff_list':angle_coeff_list,'angle_name_list':angle_name_list});
 
-
-# In[9]:
+# In[17]:
 
 
 # write .pickle data with the model setup information
 filename = "model_setup.pickle";
-print_log("Writing model data .pickle");
-print_log("filename = " + filename);
-s = model_info;
+print("Writing:")
+print("filename = " + filename);
+s = {}; s.update({'num_dim':num_dim,'box':box,'atom_types':atom_types,
+          'atom_list':atom_list,'atom_mass_list':atom_mass_list,'atom_name_list':atom_name_list,
+          'atom_id_list':atom_id_list,'atom_mol_list':atom_mol_list,
+          'bond_types':bond_types,'bond_list':bond_list,
+          'bond_coeff_list':bond_coeff_list,'bond_name_list':bond_name_list,
+          'angle_types':angle_types,'angle_list':angle_list,
+          'angle_coeff_list':angle_coeff_list,'angle_name_list':angle_name_list})
 f = open(filename,'wb'); pickle.dump(s,f); f.close();
 
-# write the model .read_data file for lammps
+
+# In[18]:
+
+# In[19]:
+
+
 filename = "Polymer.LAMMPS_read_data";
-print_log("Writing model data .read_data");
-print_log("filename = " + filename);
-atz_util.write_read_data(filename=filename,print_log=print_log,**model_info);
+print("Writing:")
+print("filename = " + filename);
+f = open(filename,"w");
+
+s = """
+# =========================================================================
+# LAMMPS file for 'read_data' command                                      
+# 
+# Generated by selm python scripts by Paul J. Atzberger.
+# 
+# =========================================================================
+""";
+f.write(s);
+
+s = """
+# =========================================================================
+# Description:
+# -------------------------------------------------------------------------
+# 
+# SELM_Lagrangian = SELM_Lagrangian_LAMMPS_ATOM_ANGLE_STYLE
+# LagrangianName = Points
+# LagrangianTypeStr = LAMMPS_ATOM_ANGLE_STYLE
+# 
+# SELM_Eulerian   = SELM_Eulerian_LAMMPS_SHEAR_UNIFORM1_FFTW3
+#
+# atom_type = angle_type
+#
+# =========================================================================
+""";
+f.write(s);
+
+s = """
+# =========================================================================
+# Header information:
+# -------------------------------------------------------------------------
+%d atoms
+%d bonds
+%d angles
+
+%d atom types
+%d bond types
+%d angle types
+# =========================================================================
+"""%(num_atoms,num_bonds,num_angles,atom_types.shape[0],bond_types.shape[0],angle_types.shape[0]);
+f.write(s);
+
+s = """
+# =========================================================================
+# Domain Size Specification:
+# -------------------------------------------------------------------------
+%d %d xlo xhi
+%d %d ylo yhi
+%d %d zlo zhi
+0.0 0.0 0.0 xy xz yz
+# =========================================================================
+"""%tuple(box.flatten());
+f.write(s);
+
+s = """
+# =========================================================================
+# Mass Specification:
+#
+# Gives for each atom the following:
+#    type-ID | mass
+# -------------------------------------------------------------------------
+# Atom Location Specification:
+#
+# Gives for atom angle_type the following:
+#    atom-ID | molecule-ID | type-ID | x | y | z
+# -------------------------------------------------------------------------
+# Bond Specification:
+#
+# Gives for atom angle_type the following:
+#    bond-ID | type-ID | atom1-ID | atom2-ID
+# -------------------------------------------------------------------------
+# Angle Specification:
+#
+# Gives for atom angle_type the following:
+#    angle-ID | type-ID | atom1-ID | atom2-ID | atom3-ID
+# -------------------------------------------------------------------------
+# WARNING: atom-ID, type-ID, molecule-ID must be between 1 - N             
+# -------------------------------------------------------------------------
+""";
+f.write(s);
+
+s = """
+Masses
+
+""";
+for I_type in atom_types:
+  m0 = atom_mass_list[I_type - 1];
+  s += "%d %.7f\n"%(I_type,m0);
+
+f.write(s);
+
+s = """
+Atoms
+
+""";
+for I_type in atom_types:
+  x = atom_list[I_type - 1]; 
+  atom_id = atom_id_list[I_type - 1];
+  atom_mol = atom_mol_list[I_type - 1];
+  for I in range(0,x.shape[0]):
+    I_id = atom_id[I]; I_mol = atom_mol[I];
+    s += "%d %d %d "%(I_id,I_mol,I_type);
+    s += "%.7f %.7f %.7f\n"%tuple(x[I,:]);    
+f.write(s);
+
+if num_bonds > 0:
+  # note below does not violate scope, but needed for formatting
+  s = """
+Bond Coeffs
+ 
+""";
+  f.write(s);
+
+  s = "";
+  for I_type in bond_types:
+    bond_coeff = bond_coeff_list[I_type - 1];
+    s += "%d %s\n"%(I_type,bond_coeff);
+
+  f.write(s);
+
+  # note below does not violate scope, but needed for formatting
+  s = """
+Bonds
+  
+""";
+  f.write(s);
+
+  s = "";
+  for I_type in bond_types:  
+    bonds = bond_list[I_type - 1]; bond_id = bond_id_list[I_type - 1];
+    for I in range(0,bonds.shape[0]):
+      I_id = bond_id[I];
+      s += "%d %d %d %d\n"%(I_id,I_type,bonds[I,0],bonds[I,1]);
+
+  f.write(s);
+
+if num_angles > 0:
+  # note below does not violate scope, but needed for formatting  
+  s = """
+Angle Coeffs
+  
+""";
+  f.write(s);
+
+  for I_type in angle_types:
+    s = "";  
+    angle_coeff = angle_coeff_list[I_type - 1];
+    s += "%d %s\n"%(I_type,angle_coeff);
+    f.write(s);
+
+if num_angles > 0:  
+  # note below does not violate scope, but needed for formatting  
+  s = """
+Angles
+  
+""";
+  f.write(s);    
+    
+  s = "";
+  for I_type in angle_types:
+    angles = angle_list[I_type - 1]; angle_id = angle_id_list[I_type - 1];
+    for I in range(0,angles.shape[0]):
+      I_id = angle_id[I];
+      s += "%d %d %d %d %d\n"%(I_id,I_type,angles[I,0],angles[I,1],angles[I,2]);
+
+  f.write(s);
+
+f.close();
 
 
-# In[10]:
-
-
+# In[20]:
 #!cat Polymer.LAMMPS_read_data
 
 
 # ### Perform the simulation
 
-# In[11]:
+# In[21]:
 
 
 # We can send collection of commands using the triple quote notation
@@ -304,6 +602,7 @@ s = """
 # =========================================================================
 
 # == Setup variables for the script 
+
 variable dumpfreq         equal    1
 variable restart          equal    0
 variable neighborSkinDist equal    1.0 # distance for bins beyond force cut-off (1.0 = 1.0 Ang for units = real) 
@@ -321,6 +620,7 @@ units       nano
 atom_style  angle 
 
 # indicates possible types allowed for bonds between the atoms 
+#bond_style  hybrid fene 
 bond_style hybrid harmonic 
 
 # indicates possible types allowed for bond angles between the atoms 
@@ -334,6 +634,9 @@ velocity all zero linear                   # initialize all atomic velocities in
 
 # == Interactions 
 pair_style none
+#pair_style lj/cut 30.0                             # Lennard-Jones with cut-off
+#pair_coeff 1 1 2478959.87 22.5                     # epsilon and sigma : KBT and bead-size
+#pair_coeff 2 2 0.0 22.5                            # epsilon and sigma : KBT and bead-size
 atom_modify sort 1000 ${neighborSkinDist}          # setup sort data explicitly since no interactions to set this data. 
 
 # == Setup neighbor list distance
@@ -342,6 +645,8 @@ comm_modify mode single cutoff 202.0 vel yes
 
 neighbor ${neighborSkinDist} bin                    # first number gives a distance beyond the force cut-off ${neighborSkinDist}
 neigh_modify every 1
+
+##neigh_modify exclude 1 1                           # exclude neighbor list rebuilds (for periodic images for 1 interacting with 1)
 
 atom_modify sort 0 ${neighborSkinDist}           # setup sort data explicitly since no interactions to set this data. 
 
@@ -360,7 +665,7 @@ dump        dmp_vtk all vtk ${dumpfreq} ./vtk/Particles_*.vtp id type vx fx
 dump_modify dmp_vtk pad 8 # ensures filenames file_000000.data
 
 # == simulation time-stepping
-timestep 60
+timestep 15
 
 """
 
@@ -368,30 +673,32 @@ timestep 60
 print_log("Sending commands to LAMMPs");
 for line in s.splitlines():
   print_log(line);
-  L.command(line);
+  lmp.command(line);
 
 
-# In[12]:
+# In[25]:
 
 
 #!cat Model.SELM_Info
 
 
-# In[13]:
+# In[26]:
 
 
 flag_run_cell = True;
 if flag_run_cell:
-  atoms = L.atoms;
-  num_atoms = len(atoms);
-  xx = []; tt = [];
-  for i in range(0,num_atoms):
-    #ii = L.atoms[i].index;
-    xx.append(atoms[i].position);
-    tt.append(atoms[i].type); 
+  #atoms = lmp.atoms; # PJA old way
+  #xx = []; tt = [];
+  num_atoms = lmp.get_natoms();
+  atom_x = lmp.numpy.extract_atom('x');
+  atom_type = lmp.numpy.extract_atom('type');
+  #for i in range(0,num_atoms):
+  #  #ii = lmp.atoms[i].index;
+  #  xx.append(atoms[i].position);
+  #  tt.append(atoms[i].type); 
 
-  atom_x = np.array(xx); # convert to numpy array
-  atom_type = np.array(tt);
+  #atom_x = np.array(xx); # convert to numpy array
+  #atom_type = np.array(tt);
     
   plt.figure(1,facecolor='white',figsize= (8,6));
 
@@ -419,16 +726,16 @@ if flag_run_cell:
 
   plt.draw();
   base_filename = '%s/configuration_initial1'%(base_dir_fig);
-  atz_util.save_fig(base_filename,flag_pdf=True);
+  save_fig(base_filename,flag_pdf=True);
 
 
-# In[14]:
+# In[ ]:
 
 
 # We can send collection of commands using the triple quote notation
 s = """
 # == Run the simulation
-run      1000 upto
+run      10000 upto
 
 # == Write restart data
 write_restart ${baseFilename}.LAMMPS_restart_data
@@ -438,7 +745,7 @@ write_restart ${baseFilename}.LAMMPS_restart_data
 print_log("Sending commands to LAMMPs");
 for line in s.splitlines():
   print_log(line);
-  L.command(line);
+  lmp.command(line);
 
 
 # ### Get the last configuration
@@ -446,34 +753,38 @@ for line in s.splitlines():
 # In[ ]:
 
 
-print_log("L.fixes = " + str(L.fixes));
+print_log("lmp.fixes = " + str(lmp.fixes));
 
 print_log("");
 print_log("Run additional steps (method 1):")
-print_log("L.run(num_steps)");
+print_log("lmp.run(num_steps)");
 num_steps = 10;
-#L.run(num_steps);
+#lmp.run(num_steps);
 
 print_log("");
 print_log("Run additional steps (method 2):")
 num_steps = 10;
 s = "run %d"%num_steps;
-print_log("L.command(\"%s\");"%s);
-#L.command(s);
+print_log("lmp.command(\"%s\");"%s);
+#lmp.command(s);
 
 print_log("");
 print_log("Atom positions:")
 # Get the atom current location
-atoms = L.atoms;
-num_atoms = len(atoms);
-xx = []; tt = [];
-for i in range(0,num_atoms):
-  #ii = L.atoms[i].index;
-  xx.append(atoms[i].position);
-  tt.append(atoms[i].type); 
+#atoms = lmp.atoms;
+#num_atoms = len(atoms);
+#xx = []; tt = [];
+#for i in range(0,num_atoms):
+#  #ii = lmp.atoms[i].index;
+#  xx.append(atoms[i].position);
+#  tt.append(atoms[i].type); 
+#
+#atom_x = np.array(xx); # convert to numpy array
+#atom_type = np.array(tt);
 
-atom_x = np.array(xx); # convert to numpy array
-atom_type = np.array(tt);
+num_atoms = lmp.get_natoms();
+atom_x = lmp.numpy.extract_atom('x');
+atom_type = lmp.numpy.extract_atom('type');
 
 print_log("atom_x = " + str(atom_x));
 print_log("atom_type = " + str(atom_type));
@@ -510,7 +821,7 @@ if flag_run_cell:
 
   plt.draw();
   base_filename = '%s/configuration_view1'%(base_dir_fig);
-  atz_util.save_fig(base_filename,flag_pdf=True);
+  save_fig(base_filename,flag_pdf=True);
 
 
 # In[ ]:
@@ -533,4 +844,6 @@ if flag_run_cell:
     s += "topo addbond %d %d \n"%(i,i+1);
 
   print(s);
+
+
 
