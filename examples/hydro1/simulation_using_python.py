@@ -19,12 +19,12 @@ script_dir = os.getcwd();
 
 # import the lammps module
 try:  
-  from selm_lammps.lammps import IPyLammps # use this for the pip install of pre-built package
-  lammps_import_comment = "from selm_lammps.lammps import IPyLammps";  
+  from selm_lammps.lammps import lammps # use this for the pip install of pre-built package
+  lammps_import_comment = "from selm_lammps.lammps import lammps";  
   from selm_lammps import util as atz_util;
 except Exception as e:  
-  from lammps import IPyLammps # use this for direct install of package
-  lammps_import_comment = "from lammps import IPyLammps";
+  from lammps import lammps # use this for direct install of package
+  lammps_import_comment = "from lammps import lammps";
   from atz_lammps import util as atz_util;
 except Exception as e: # if fails to import, report the exception   
   print(e);
@@ -78,7 +78,7 @@ os.chdir(base_dir); # base the current working directory
 # In[4]:
 
 
-L = IPyLammps();
+lmp =  lammps();
 atz_util.print_version_info(L);    
 
 
@@ -359,7 +359,7 @@ write_restart ${baseFilename}.LAMMPS_restart_data
 print_log("Sending commands to LAMMPs");
 for line in s.splitlines():
   print_log(line);
-  L.command(line);
+  lmp.command(line);
 
 
 # In[12]:
