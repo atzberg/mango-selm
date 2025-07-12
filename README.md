@@ -18,18 +18,26 @@ Allows for SELM, Immersed Boundary Methods, and related hydrodynamic solvers to 
 
 **Quick Start**
 
-To install pre-compiled package for Python use
+To install pre-compiled *lean package* (older version) for Python use
 
 ```pip install -U selm-lammps```
 
-To test the package installed run 
+To install pre-compiled *full package* (latest version) for Python, download one of the following
+
+- Linux Debian 9+/Ubuntu (latest):
+  [selm_lammps-0.2.20.dev0-py3-none-manylinux_2_34_x86_64.whl](https://web.math.ucsb.edu/~atzberg/selm/distr/selm_lammps-0.2.20.dev0-py3-none-manylinux_2_34_x86_64.whl)  
+- Linux Debian 9+/Ubuntu (flexible install) (latest):
+  [selm_lammps-0.2.20.dev0-py3-none-any.whl](https://web.math.ucsb.edu/~atzberg/selm/distr/selm_lammps-0.2.20.dev0-py3-none-any.whl)
+
+Install the *full package* .whl  using 
+
+```pip install -U (substitute-filename-or-url-here).whl```
+
+To test the installation of either package, run 
 
 ```python -c "from selm_lammps.tests import t1; t1.test()"```
 
-Pre-compiled binaries for (Debian 9+/Ubuntu and Centos 7+, Python 3.6+).
-
-__If you installed previously__ this package, please be sure to update to the latest version using 
-```pip install --upgrade selm-lammps```
+__If you installed previously__ this package, please be sure to update to the latest versions posted here.
 
 __For example models, notebooks,__ and scripts, see the [examples folder](https://github.com/atzberg/mango-selm/tree/master/examples).  
 
