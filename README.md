@@ -19,8 +19,9 @@ Allows for SELM, Immersed Boundary Methods, and related hydrodynamic solvers to 
 **Quick Start**
 
 To install pre-compiled *lean package* (older version) for Python use
-
-```pip install -U selm-lammps```
+```
+pip install -U selm-lammps
+```
 
 To install pre-compiled *full package* (latest version) for Python, download one of the following
 
@@ -30,19 +31,29 @@ To install pre-compiled *full package* (latest version) for Python, download one
   [selm_lammps-0.2.20.dev0-py3-none-any.whl](https://web.math.ucsb.edu/~atzberg/selm/distr/selm_lammps-0.2.20.dev0-py3-none-any.whl)
 
 Install the *full package* .whl  using 
-
-```pip install -U (substitute-filename-or-url-here).whl```
+```
+pip install -U (substitute-filename-or-url-here).whl
+```
 
 To test the installation of either package, run 
-
-```python -c "from selm_lammps.tests import t1; t1.test()"```
+```
+python -c "from selm_lammps.tests import t1; t1.test()"
+```
 
 __If you installed previously__ this package, please be sure to update to the latest versions posted here.
 
 __For example models, notebooks,__ and scripts, see the [examples folder](https://github.com/atzberg/mango-selm/tree/master/examples).  
 
 **Other ways to install the package**
-The codes can also be run on Windows using WSL Ubuntu 22.04.  Another way to run prototype models and simulations on a desktop, such as Windows and MacOS, is using Docker container.  For example, install [Docker Desktop](https://docs.docker.com/desktop/), or docker for linux, and then load a standard ubuntu container by using in the terminal ```docker run -it ubuntu:20.04 /bin/bash```  You can then use ```apt update; apt install python3-pip```, and can then pip install and run the simulation package as above.  Note use command ```python3``` in place of ```python``` when calling scripts.  Pre-installed packages in anaconda also in ```docker run -it atzberg/ubuntu_24_04_anaconda3 /bin/bash```  Use ```conda activate selm-lammps``` May need to update packages to the latest version. 
+The codes can also be run on Windows using WSL Ubuntu 22.04.  Another way to run prototype models and simulations on a desktop, such as Windows and MacOS, is using Docker container.  For example, install [Docker Desktop](https://docs.docker.com/desktop/), or docker for linux, and then load a standard ubuntu container by using in the terminal ```docker run -it ubuntu:20.04 /bin/bash```  You can then use ```apt update; apt install python3-pip```, and can then pip install and run the simulation package as above.  Note use command ```python3``` in place of ```python``` when calling scripts.  Pre-installed packages in anaconda also in 
+```
+docker run -it atzberg/ubuntu_24_04_anaconda3 /bin/bash
+```
+Use 
+```
+conda activate selm-lammps
+```
+May need to update packages to the latest version. 
 
 For more information on other ways to install or compile the package, please see the documentation page http://doc.mango-selm.org/
 
