@@ -2,7 +2,7 @@
 <img src="https://github.com/atzberg/mango-selm/blob/master/images/docs/mango_selm_software.png" width="100%"> 
 </p>
 
-[Tutorial 1](https://www.lammps.org/workshops/Aug21/breakout/user-selm/index.html) | [Tutorial 2](https://www.youtube.com/watch?v=EXg8WjfgXmk) | [Examples](./examples) | [Documentation Pages](http://doc.mango-selm.org/)
+[Tutorial 1](https://www.lammps.org/workshops/Aug21/breakout/user-selm/index.html) | [Tutorial 2](https://www.youtube.com/watch?v=EXg8WjfgXmk) | [Examples](./examples) | [Documentation Pages](https://web.atzberger.org/mango-selm)
 
 ### Mango-Selm: Fluid-Structure Interactions and Fluctuating Hydrodynamics Simulation Package
 Now available with Jupyter notebooks and Python scripts for readily setting up models and simulations.
@@ -26,9 +26,9 @@ pip install -U selm-lammps
 To install pre-compiled *full package* (latest version) for Python, download one of the following
 
 - Linux Debian 9+/Ubuntu (latest):
-  [selm_lammps-0.2.20.dev0-py3-none-manylinux_2_34_x86_64.whl](https://web.math.ucsb.edu/~atzberg/selm/distr/selm_lammps-0.2.20.dev0-py3-none-manylinux_2_34_x86_64.whl)  
+  [selm_lammps-0.2.20.dev0-py3-none-manylinux_2_34_x86_64.whl](https://web.atzberger.org/selm/distr/selm_lammps-0.2.20.dev0-py3-none-manylinux_2_34_x86_64.whl)  
 - Linux Debian 9+/Ubuntu (flexible install) (latest):
-  [selm_lammps-0.2.20.dev0-py3-none-any.whl](https://web.math.ucsb.edu/~atzberg/selm/distr/selm_lammps-0.2.20.dev0-py3-none-any.whl)
+  [selm_lammps-0.2.20.dev0-py3-none-any.whl](https://web.atzberger.org/selm/distr/selm_lammps-0.2.20.dev0-py3-none-any.whl)
 
 Install the *full package* .whl  using 
 ```
